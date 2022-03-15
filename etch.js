@@ -21,6 +21,8 @@ function makeGrid(squares) {
         } 
     }
     // console.log(1000/)
+    
+
 }
 
 function changeColor(e) {
@@ -30,17 +32,22 @@ function changeColor(e) {
 }
 
 
-
-let squares = prompt("Enter # of squares per side");
-while (isNaN(squares) || 0 > squares || squares > 99 || squares == '') {
+function getSquares() {
     squares = prompt("Enter # of squares per side");
+    while (isNaN(squares) || 0 >= squares || squares > 99 || squares == '') {
+        squares = prompt("Enter # of squares per side");
+    }
+    makeGrid(squares);
 }
 
 
 
 
+getSquares();
+document.getElementById('clickMe').onclick = () => window.location.reload(true);
+// btn.onclick = () => window.location.reload(true);
 
-makeGrid(squares);
+
 
 let boxes = document.getElementsByClassName('box');
 boxes = Array.from(boxes);
